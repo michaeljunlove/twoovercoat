@@ -1,68 +1,159 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, section,article,header {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	box-sizing: border-box;
 }
-
-html,body {
-    height: 100%;
-    margin: 0;
-}
-
-#gamebg{
+html, body{
+	width: 100%;
 	height: 100%;
 }
+	
+ol, ul {
+	list-style: none;
+	}
 
-#fill {
-    background-image: url(../imgs/game_background.png);
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+blockquote, q {
+	quotes: none;
+	}
+
+:focus {
+	outline: 0;
+	}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+a{
+	text-decoration: none;
 }
-#btn-wrap{
-    width: 200px;
-    height:60px;
-   position: absolute;
-    margin:auto;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0; 
-}
-#start-btn{
-    background-color: #fff;
-    font-family: STHeitiSC-Light;
-    font-size: 24px;
-    color: #7f7f7f;
-    height:50px;
-    width:200px;
-    padding: 5px 30px;
-    border-radius: 6px;
-    border: 2px #7f7f7f solid;
-    outline: none;
-    cursor: pointer;
+.out{
+	display: none;
 }
 
-#score-btn{
-        background-color: #fff;
-    font-family: STHeitiSC-Light;
-    font-size: 24px;
-    color: #7f7f7f;
-    height:50px;
-    width:200px;
-    padding: 5px 30px;
-    border-radius: 6px;
-    border: 2px #7f7f7f solid;
-    outline: none;
-    cursor: pointer;
-    display: none;
-    margin-bottom: 10px;
+
+
+.flexBox{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 900;
+}
+.flexBox > div{
+	position: relative;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-webkit-align-item: flex-center;
+	-ms-flex-align: center;
+	align-item: flex-center;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-webkit-justify-content: flex-center;
+	-ms-flex-pack: center;
+	justify-content: flex-center;
+	background-color: #5a3b1e;
+	width: 100%;
+	height: 100%;
+}
+.progressBox{
+	position: relative;
+	padding: 5px;
+	width: 250px;
+	height: 30px;
+	background-color: gray;
+	z-index: 1000;
+}
+.progressBox > .box{
+	width: 20px;
+	height: 20px;
+	border: 3px solid #fff;
+	background-color: #fff;
+	float: left;
 }
 
-#canvas {
-    display: none;
+.progressBox > .box.active{
+	background-color: black;
 }
+
+.background{
+	background-position: center bottom;
+	background-repeat: no-repeat;
+}
+.rules{
+	text-align: center;
+	color: #f49f3e;
+}
+.rules h1{
+	padding: 10px;
+	font-size: 24px;
+}
+.rules p{
+	padding: 10px;
+	font-size: 13px;
+}
+.rules p.dec{
+	line-height: 1.3em;
+	color: #ae6565;
+}
+.btn{
+	background-color: #f49f3e;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px
+}
+
+.recordPane{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background-color: #6d2b15;
+	height: 50px;
+	padding: 9px;
+	font-family: fantasy;
+}
+.recordPane img{
+	width: 32px;
+}
+.recordPane > div{
+	float: left;
+	width: 30%;
+	font-size: 16px;
+	color: #f49f3e;
+	text-align: center;
+}
+.recordPane span{
+	font-size: 22px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

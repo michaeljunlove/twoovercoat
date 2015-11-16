@@ -1,32 +1,86 @@
 <!DOCTYPE HTML>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <title>I Want Money</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta charset='utf-8'>
+	<title>Coffee Gaming</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
 <body>
-    <div id='gamebg'>
-        <div id='fill'></div>
-        <div id = 'btn-wrap'>
-        <button id='score-btn'>得分</button>
-        <button id='start-btn'>开始游戏</button>
-        </div>
-    </div>
-    <canvas id='canvas'>
-        Canvas not supported!
-    </canvas>
-    <script src="vendors/easeljs-0.8.1.min.js"></script>
+	<section id='progress' class='flexBox'>
+		<div>
+			<div class='progressBox'>
+				<div class='box'></div>
+				<div class='box'></div>
+				<div class='box'></div>
+				<div class='box'></div>
+				<div class='box'></div>
+				<div class='box'></div>
+				<div class='box'></div>
+				<div class='box'></div>
+				<div class='box'></div>
+				<div class='box'></div>
+				<div class='box'></div>
+				<div class='box'></div>
+			</div>
+		</div>
+		
+	</section>
+	<section id='startOver' class='flexBox out'>
+		<div class='background'>
+			<div class='rules'>
+				<h1>游戏规则</h1>
+				<p class='dec'>
+					屏幕上方往下掉落咖啡豆，乔雅咖啡及金咖啡豆，<br>通过移动屏幕下方的咖啡杯接住这些物品，
+					游戏时<br>间60秒。
+				</p>
+				<h1>奖品设置</h1>
+				<p>
+					成功接到100粒咖啡豆，即可获得一张+2元咖<br>啡换购券。   
+				</p>
+				<p>
+					成功接到100粒咖啡豆、5瓶乔雅咖啡，即可获<br>得一张咖啡免费换购券。
+				</p>
+				<p>
+					成功接到100粒咖啡豆、10瓶乔雅咖啡、1粒金<br>豆（随机出现），即可获得限量精美礼品一份
+				</p>
+				<br>
+				<button class='btn'>开始游戏</button>
+			</div>
+		</div>
+	</section>
+	<section id='startGame' class='flexBox out'>
+		<div class='background'>
+			<div id='recordPane' class='recordPane'>
+				<div class='normal'>
+
+				</div>
+				<div class='bottle'></div>
+				<div class='golden'></div>
+			</div>
+			<canvas id='canvas'>
+
+			</canvas>
+		</div>
+	</section>
+	<section id='gameOver' class='flexBox out'>
+		<div class='background'>
+			<div class='rules'>
+				
+				<button class='btn'>确定</button>
+			</div>
+		</div>
+	</section>
+	<script src="vendors/jquery-1.11.2.min.js"></script>
+	<script src="vendors/easeljs-0.8.1.min.js"></script>
     <script src="vendors/tweenjs-0.6.1.min.js"></script>
     <script src="vendors/preloadjs-0.6.1.min.js"></script>
-    <script type="text/javascript" src="scripts/help.js"></script>
+     <script src="scripts/algorithm.js"></script>
+    <script src="scripts/scenes.js"></script>
+    <script src="scripts/game-scene.js"></script>
+    <script src="scripts/help.js"></script>
     <script src="scripts/view-sprites.js"></script>
     <script src="scripts/game.js"></script>
-    <script type="text/javascript" src="scripts/scenes.js"></script>
 </body>
-
 </html>
