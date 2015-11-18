@@ -23,7 +23,31 @@ var jQuery = this.jQuery || $ || {};
 	gameScene.onShow = function(){
 		console.log('onshow')
 		//ajax回调函数里面调用
-		game.gameView.init();
+		//game.gameView.init();
+		var nowTime = new Date()
+		if (window.localStorage['userWonFirstPrize']) {
+			game.algorithm.probablity.coffeebean_Gold = 0;
+		};
+		if (window.localStorage['userWonSecondPrize']) {
+			game.algorithm.probablity.coffeebottle = 0;
+		};
+
+		if (window.localStorage['timestamp'] && game.helper.constructTime(nowTime) != window.localStorage['timestamp']) {
+			window.localStorage['timesUserPlayed'] = 0;
+		};
+
+		if (!window.localStorage['timesUserPlayed'] || window.localStorage['timesUserPlayed'] === 0) {
+			window.localStorage['timesUserPlayed'] = 1;
+			window.localStorage['timestamp'] = game.helper.constructTime(nowTime);
+			game.gameView.init();
+		}else if(window.localStorage['timesUserPlayed'] <= 2){
+			window.localStorage['timesUserPlayed'] ++;
+			game.gameView.init();
+		}else{
+			console.log('togameover')
+			game.flow.gameOver();
+		}
+		
 	}
 	gameScene.onHide = function(){
 		console.log('onhide')

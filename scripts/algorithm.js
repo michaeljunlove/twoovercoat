@@ -6,8 +6,8 @@ var game = this.game || (this.game = {});
 			coffeebean_A: 0.2,
 			coffeebean_B: 0.4,
 			coffeebean_C: 0.6,
-			coffeebean_D: 0.95,
-			coffeebottle: 0.999,
+			coffeebean_D: 0.8,
+			coffeebottle: 0.99,
 			coffeebean_Gold: 1
 		},
 		getTempThing: function(){

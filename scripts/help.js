@@ -33,4 +33,7 @@ var game = this.game || (this.game = {});
         if (b1<t2 || l1>r2 || t1>b2 || r1<l2) return false;
         else return true;
 	}
+	game.helper.constructTime = function(nowTime){
+		return nowTime.getFullYear() + '-' + nowTime.getMonth() + '-' + nowTime.getDay();
+	}
 })();

@@ -21,7 +21,7 @@ var jQuery = this.jQuery || $ || {};
 		var resol = game.helper.getProperBG();
 		var recorder = 0, allRecord;
 		manifest = [
-			{src: "coffeecup_icon.png", id: "coffeecup"},
+			{src: "coffeecup_icon2.png", id: "coffeecup"},
 			{src: "coffeebottle_icon.png", id: "coffeebottle"},
 			{src: "gold_coffeebean_icon.png", id: "gold_coffeebean"},
 			{src: "normal001_coffeebean_icon.png", id: "normal001_coffeebean"},
@@ -46,9 +46,9 @@ var jQuery = this.jQuery || $ || {};
 
 ;(function(game, $){
 	game.recorder = {
-		scorebar_normalcoffeebean: {},
-		scorebar_coffeebottle: {},
-		scorebar_goldcoffeebean: {},
+		scorebar_normalcoffeebean: undefined,
+		scorebar_coffeebottle: undefined,
+		scorebar_goldcoffeebean: undefined,
 		init: function(){
 			this.initRecorderPane();
 		},
@@ -67,6 +67,13 @@ var jQuery = this.jQuery || $ || {};
 			var temp = game.recorder[thing.data.type].find('span');
 			var count = parseInt(temp.text()) + 1;
 			temp.text(count);
+		},
+		getResult: function(){
+			return {
+				normalcoffeebean: this.scorebar_normalcoffeebean ? parseInt(this.scorebar_normalcoffeebean.find('span').text()): 0,
+				coffeebottle: this.scorebar_coffeebottle ? parseInt(this.scorebar_coffeebottle.find('span').text()): 0,
+				goldcoffeebean: this.scorebar_goldcoffeebean ? parseInt(this.scorebar_goldcoffeebean.find('span').text()): 0,
+			}
 		}
 	}
 }).call(this, game, jQuery)
@@ -74,15 +81,15 @@ var jQuery = this.jQuery || $ || {};
 ;(function(game, cjs){
 	game.flow = {
 		startOver: function(){
-			game.startScene.show();
 			game.gameScene.hide();
 			game.gameOverScene.hide();
 			game.progressScene.hide();
+			game.startScene.show();
 		},
 		startGame: function(){
 			game.startScene.hide();
-			game.gameScene.show();
 			game.gameOverScene.hide();
+			game.gameScene.show();
 		},
 		gameOver: function(){
 			game.startScene.hide();
@@ -224,7 +231,6 @@ var jQuery = this.jQuery || $ || {};
 
 ;(function(game){
 	if (game) {
-		//页面加载完成后的初始化函数，调用本页面的208行
 		game.start();
 	}else{
 		throw "No game logic found.";

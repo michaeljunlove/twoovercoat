@@ -66,7 +66,40 @@ var jQuery = this.jQuery || $ || {};
 				console.log('gameover startgame')
 				game.flow.startGame();
 			})
-		gameOverScene.setup = function(){};
+	}
+	gameOverScene.onShow = function(){
+		var result,
+			conclution = "";
+		if (window.localStorage['timesUserPlayed'] < 3) {
+			result = game.recorder.getResult()
+			if (result.normalcoffeebean >= 100 && result.coffeebottle >= 10 && result.goldcoffeebean > 1) {
+				window.localStorage['userWonFirstPrize'] = true;
+				conclution = "<h1>恭喜您，获得</h1><p>精美礼品一份（价值200元）<br>请输入您的联系电话<br>方便我们和你取得联系</p><br><input class='inputArea' type='text'>"
+			}else if (result.normalcoffeebean >= 100 && result.coffeebottle >= 5) {
+				window.localStorage['userWonSecondPrize'] = true;
+				conclution = "<h1>恭喜您，获得</h1><p>咖啡换购券一张<br>已存入您的微信卡包<br>您可以去世纪联华XX店兑换</p>"
+			}else if (result.normalcoffeebean >= 100) {
+				conclution = "<h1>恭喜您，获得</h1><p>+2元咖啡换购券一张<br>已存入您的微信卡包<br>您可以去世纪联华XX店兑换</p>";
+			}else{
+				conclution = "<h1>再玩一次！</h1>"
+			}
+		}else{
+			result = game.recorder.getResult()
+			if (result.normalcoffeebean >= 100 && result.coffeebottle >= 10 && result.goldcoffeebean > 1) {
+				window.localStorage['userWonFirstPrize'] = true;
+				conclution = "<h1>恭喜您，获得</h1><p>精美礼品一份（价值200元）<br>请输入您的联系电话<br>方便我们和你取得联系</p><br><input class='inputArea' type='text'>"
+			}else if (result.normalcoffeebean >= 100 && result.coffeebottle >= 5) {
+				window.localStorage['userWonSecondPrize'] = true;
+				conclution = "<h1>恭喜您，获得</h1><p>咖啡换购券一张<br>已存入您的微信卡包<br>您可以去世纪联华XX店兑换</p>"
+			}else if (result.normalcoffeebean >= 100) {
+				conclution = "<h1>恭喜您，获得</h1><p>+2元咖啡换购券一张<br>已存入您的微信卡包<br>您可以去世纪联华XX店兑换</p>";
+			}
+            game.recorder.initRecorderPane();
+			conclution += "<p>今天您已经玩过3次了<br>分享给好友可再获得<br>三次游戏机会</p>";
+		}
+		console.log('gameover Onshow' + conclution);
+		conclution += "<br>";
+		gameOverScene.node.find('#conclution').empty().append(conclution);
 	}
 
 }).call(this, game, jQuery)
